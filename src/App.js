@@ -1,25 +1,18 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	const [switchStuff, setSwitchStuff] = useState(true);
+
+	return (
+		<div className="App" style={{ backgroundColor: switchStuff ? "lightblue" : "darkblue", color: switchStuff ? "darkblue" : "lightblue" }}>
+			<h1>{switchStuff ? "Es ist Tag ☀️" : "Es ist Nacht🌑"}</h1>
+			<button onClick={() => setSwitchStuff(!switchStuff)}>
+				{switchStuff ? "Wechsel zu Nacht" : "Wechsel zu Tag"}
+			</button>
+		</div>
+	);
 }
 
 export default App;
